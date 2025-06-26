@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Settings } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,21 +21,12 @@ const Navigation: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 group">
-            <div className="relative">
-              <Settings 
-                size={40} 
-                className="text-american-blue group-hover:text-bold-red transition-colors duration-300 transform group-hover:rotate-45" 
-              />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold text-american-blue group-hover:text-bold-red transition-colors duration-300 font-western">
-                BROKEN SPOKES
-              </span>
-              <span className="text-sm text-gray-600 font-western tracking-wide">
-                PRODUCTIONS
-              </span>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img 
+              src="https://i.imgur.com/V3H2Ohm.png" 
+              alt="Broken Spokes Productions Logo"
+              className="h-16 w-auto object-contain group-hover:opacity-90 transition-opacity duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}
