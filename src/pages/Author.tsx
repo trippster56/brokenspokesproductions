@@ -72,13 +72,13 @@ const Author: React.FC = () => {
               </h2>
               <div className="h-1 w-16 bg-bold-red mb-6"></div>
               <p className="text-lg text-gray-700 font-western mb-6 leading-relaxed">
-                Russ Sawyer is an acclaimed author and storyteller whose works capture the authentic spirit of the American West. Born and raised on a working ranch, his writing draws from a lifetime of experience with Western culture, values, and traditions.
+              Russ Sawyer, a twenty-year United States Air Force veteran, brings unparalleled authenticity to his debut novel, The Hanging Creek Chronicles: Shadows of Martial Law, the first in a dystopian trilogy tailored for preparedness enthusiasts and post-apocalyptic fiction fans. Inspired by A. American’s Going Home series, he began this novel over ten years ago during dialysis treatments, transforming hardship into a creative pursuit. As a podcast producer for authors in the dystopian genre and preparedness community, Russ channels his deep survivalist knowledge into narratives of societal breakdown.
               </p>
               <p className="text-lg text-gray-700 font-western mb-6 leading-relaxed">
-                His books have been praised for their authentic voice, compelling characters, and deep respect for Western heritage. Through both fiction and non-fiction, Russ preserves and celebrates the stories that define the American frontier experience.
+              An avid fisherman and hunter, Russ teaches basic firearms instruction and, alongside his wife, Theresa, is a mainstay at preparedness events like Mountain Readiness, where he sharpens skills for an uncertain future. His military discipline and outdoor passions infuse his storytelling with gritty realism, resonating with readers who value self-reliance and practical know-how.
               </p>
               <p className="text-lg text-gray-700 font-western leading-relaxed">
-                When not writing, Russ continues his storytelling work through Broken Spokes Productions, where he brings narratives to life through multimedia productions.
+              When not writing or podcasting, Russ is casting a line, tracking game, or engaging with the preparedness community. Stay tuned for the next chapters of The Hanging Creek Chronicles and more from Russ’s distinctive voice in dystopian fiction.
               </p>
             </div>
           </div>

@@ -17,7 +17,7 @@ const Home: React.FC = () => {
           
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-xl md:text-2xl text-gray-800 font-western leading-relaxed text-center italic border-l-4 border-bold-red pl-8">
-              "Welcome to Broken Spokes Productions, where stories come to life through expert podcast production and dynamic video editing. We're passionate about crafting high-quality audio and visual content that captivates, informs, and inspires. Whether you're launching a podcast or polishing a video, our team is here to turn your vision into reality—seamlessly, professionally, and with a touch of creativity that sets you apart."
+            Welcome to Broken Spokes Productions, where stories come to life through expert podcast production and dynamic video editing. We're passionate about crafting high-quality audio and visual content that captivates, informs, and inspires. Whether you're launching a podcast or polishing a video, our team is here to turn your vision into reality—seamlessly, professionally, and with a touch of creativity that sets you apart.
             </blockquote>
           </div>
         </div>
