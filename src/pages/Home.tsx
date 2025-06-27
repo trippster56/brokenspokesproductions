@@ -10,14 +10,14 @@ const Home: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h1 className="text-5xl md:text-7xl font-bold text-american-blue font-western mb-8 leading-tight">
-              STORIES COME TO LIFE
+              OFF-GRID...ON THE AIR
             </h1>
             <div className="h-1 w-32 bg-bold-red mx-auto mb-8"></div>
           </div>
           
           <div className="max-w-4xl mx-auto">
             <blockquote className="text-xl md:text-2xl text-gray-800 font-western leading-relaxed text-center italic border-l-4 border-bold-red pl-8">
-            Welcome to Broken Spokes Productions, where stories come to life through expert podcast production and dynamic video editing. We're passionate about crafting high-quality audio and visual content that captivates, informs, and inspires. Whether you're launching a podcast or polishing a video, our team is here to turn your vision into reality—seamlessly, professionally, and with a touch of creativity that sets you apart.
+            Welcome to Broken Spokes Productions LLC, where we bring your preparedness podcast vision to life. We’re a lean, remote podcast production company dedicated to empowering independent creators in the preparedness genre—whether you’re passionate about survival, homesteading, emergency preparedness, or disaster readiness. Our mission is to transform your off-grid ideas into polished, professional audio and live video content that resonates with diverse audiences.
             </blockquote>
           </div>
         </div>
@@ -41,7 +41,7 @@ const Home: React.FC = () => {
                   PODCAST MASTERY
                 </h3>
                 <p className="text-gray-700 font-western leading-relaxed">
-                  Showcasing our finest podcast productions, from intimate storytelling to dynamic conversations that capture the Western spirit.
+                  Showcasing our finest podcast productions, from intimate storytelling to dynamic conversations that capture the Self-Reliance and Preparedness spirit.
                 </p>
               </div>
             </div>
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                   VISUAL STORYTELLING
                 </h3>
                 <p className="text-gray-700 font-western leading-relaxed">
-                  Our video productions bring stories to life with cinematic quality and authentic Western character.
+                  Our video productions bring stories to life with cinematic quality and authentic Self-Reliance and Preparedness character.
                 </p>
               </div>
             </div>

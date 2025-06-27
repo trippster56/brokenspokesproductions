@@ -50,10 +50,10 @@ const About: React.FC = () => {
                     Pre-Production
                   </h4>
                   <ul className="space-y-2 text-gray-700">
-                    <li>• Concept development for preppers</li>
+                    <li>• Concept development</li>
                     <li>• Scripting and show planning</li>
-                    <li>• Guest outreach for survival experts</li>
-                    <li>• Content strategy for preparedness topics</li>
+                    <li>• Guest outreach to Subject Matter Experts</li>
+                    <li>• Content strategy for podcast topics</li>
                   </ul>
                 </div>
 
@@ -157,7 +157,8 @@ const About: React.FC = () => {
             </h2>
             <div className="h-1 w-16 bg-bold-red mx-auto mb-8"></div>
             <p className="text-lg font-western mb-8 max-w-3xl mx-auto">
-              To empower independent creators in the preparedness community with professional podcast and live video production, helping them share their stories, values, and expertise with the world.
+            Our mission is to transform your off-grid ideas into polished, professional audio and live video content that resonates with diverse audiences.
+
             </p>
           </div>
         </div>
