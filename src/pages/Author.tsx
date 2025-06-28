@@ -12,7 +12,7 @@ const Author: React.FC = () => {
           </h1>
           <div className="h-1 w-24 bg-bold-red mx-auto mb-8"></div>
           <p className="text-2xl text-gray-700 font-western italic">
-            Author • Storyteller • Western Heritage Preservationist
+            Author • Storyteller • Heritage Preservationist
           </p>
         </div>
 
