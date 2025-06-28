@@ -1,6 +1,12 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Author: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = (inquiryType: string) => {
+    navigate('/contact', { state: { inquiryType } });
+  };
 
   return (
     <div className="py-20">
@@ -12,7 +18,7 @@ const Author: React.FC = () => {
           </h1>
           <div className="h-1 w-24 bg-bold-red mx-auto mb-8"></div>
           <p className="text-2xl text-gray-700 font-western italic">
-            Author • Storyteller • Heritage Preservationist
+            Author • Storyteller
           </p>
         </div>
 
@@ -66,10 +72,16 @@ const Author: React.FC = () => {
             Interested in book signings, speaking engagements, or literary collaborations?
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 bg-bold-red text-white font-bold font-western text-lg hover:bg-red-700 transition-colors duration-300">
+            <button 
+              onClick={() => handleButtonClick('book-signing')}
+              className="px-8 py-3 bg-bold-red text-white font-bold font-western text-lg hover:bg-red-700 transition-colors duration-300"
+            >
               BOOK SIGNING REQUEST
             </button>
-            <button className="px-8 py-3 border-2 border-white text-white font-bold font-western text-lg hover:bg-white hover:text-american-blue transition-colors duration-300">
+            <button 
+              onClick={() => handleButtonClick('media-inquiry')}
+              className="px-8 py-3 border-2 border-white text-white font-bold font-western text-lg hover:bg-white hover:text-american-blue transition-colors duration-300"
+            >
               MEDIA INQUIRIES
             </button>
           </div>

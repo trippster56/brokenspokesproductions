@@ -148,8 +148,7 @@ const Contact: React.FC = () => {
                   <Mail size={24} className="text-bold-red mt-1" />
                   <div>
                     <h3 className="font-bold text-american-blue font-western mb-1">EMAIL</h3>
-                    <p className="text-gray-700 font-western">info@brokenspokesproductions.com</p>
-                    <p className="text-gray-700 font-western">russ@brokenspokesproductions.com</p>
+                    <p className="text-gray-700 font-western">brokenspokesproductions@gmail.com</p>
                   </div>
                 </div>
                 
@@ -157,8 +156,7 @@ const Contact: React.FC = () => {
                   <Phone size={24} className="text-bold-red mt-1" />
                   <div>
                     <h3 className="font-bold text-american-blue font-western mb-1">PHONE</h3>
-                    <p className="text-gray-700 font-western">(555) 123-SPOKE</p>
-                    <p className="text-gray-700 font-western">(555) 123-7765</p>
+                    <p className="text-gray-700 font-western">843-992-7167</p>
                   </div>
                 </div>
                 
@@ -175,7 +173,7 @@ const Contact: React.FC = () => {
                   <Clock size={24} className="text-bold-red mt-1" />
                   <div>
                     <h3 className="font-bold text-american-blue font-western mb-1">HOURS</h3>
-                    <p className="text-gray-700 font-western">Monday - Friday: 8AM - 6PM MST</p>
+                    <p className="text-gray-700 font-western">Monday - Friday: 8AM - 6PM CST</p>
                     <p className="text-gray-700 font-western">Weekend consultations available</p>
                   </div>
                 </div>

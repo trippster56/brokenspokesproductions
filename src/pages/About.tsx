@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Mic, Video, Headphones, Radio, Users, CheckCircle, Mail } from 'lucide-react';
 
 const About: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleContactClick = () => {
+    navigate('/contact', { state: { inquiryType: 'consultation' } });
+  };
   return (
     <div className="py-12 bg-gray-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,13 +20,13 @@ const About: React.FC = () => {
           <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed mb-12">
             Empowering independent creators in the preparedness community with professional podcast and live video production
           </p>
-          <a 
-            href="mailto:brokenspokesproductions@gmail.com" 
+          <button 
+            onClick={handleContactClick}
             className="inline-flex items-center px-8 py-3 border border-transparent text-lg font-western rounded-md text-white bg-american-blue hover:bg-bold-red transition-colors duration-200"
           >
             <Mail className="mr-2" size={20} />
             Schedule Free Consultation
-          </a>
+          </button>
         </div>
 
         {/* Main Content */}
