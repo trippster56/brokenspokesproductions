@@ -27,9 +27,10 @@ const Author: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <img 
-                src="https://via.placeholder.com/600x400/002C63/FFFFFF?text=Russ+Sawyer+Author" 
+                src="https://live.staticflickr.com/65535/54624376525_1c89fe8a52_b.jpg" 
                 alt="Russ Sawyer - Author"
-                className="w-full rounded-lg shadow-lg border-4 border-american-blue"
+                className="w-full h-auto max-w-md mx-auto rounded-lg shadow-lg border-4 border-american-blue"
+                loading="lazy"
               />
             </div>
             <div>

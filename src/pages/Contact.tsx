@@ -156,7 +156,7 @@ const Contact: React.FC = () => {
                   <Phone size={24} className="text-bold-red mt-1" />
                   <div>
                     <h3 className="font-bold text-american-blue font-western mb-1">PHONE</h3>
-                    <p className="text-gray-700 font-western">843-992-7167</p>
+                    <p className="text-gray-700 font-western">843-250-7790</p>
                   </div>
                 </div>
                 
