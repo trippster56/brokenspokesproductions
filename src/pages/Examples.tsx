@@ -1,7 +1,13 @@
 import React from 'react';
 import { Play, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Examples: React.FC = () => {
+  const navigate = useNavigate();
+  
+  const handleViewDetails = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
   const projects = [
     {
       id: 1,
@@ -9,15 +15,17 @@ const Examples: React.FC = () => {
       type: "Podcast Production",
       description: "The “Angery American Nation Podcast,” hosted by Chris Weatherman, known as Angery American, along with panelists like Robert “T” Toombs, Seaux Larreau, Imri Morgenstern, and Donnie Dunn, has become a platform where discussions on world and national news are intertwined with themes of self-reliance and community.",
       image: "https://mma.prnewswire.com/media/1761485/LOGO___Angery_American.jpg?p=facebook",
-      duration: "45+ min episodes"
+      duration: "45+ min episodes",
+      externalLink: "https://www.youtube.com/@angery-american"
     },
     {
       id: 2,
       title: "The Eden Army Podcast",
       type: "Podcast Snippets",
       description: "Best-selling author Pete Robertucci, mastermind behind the Eden Series, hosts this electrifying podcast for his devoted readers. Dive into survival and preparedness as we grill top industry experts, arming you with the know-how to thrive when chaos strikes!",
-      image: "https://pbs.twimg.com/card_img/1938640573503545344/uAhMkTND?format=jpg&name=large",
-      duration: "2 min clips"
+      image: "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/487488316_1696193921180237_7171310811890905654_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=f-BURd_I1FMQ7kNvwG9IlNU&_nc_oc=AdkofU21H4Q8xV-5-ZOoENdz0n-YbQ8L9hsKakNUaY0hEqQvdeil-w8jOcnwiC79PaU&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=bD_0hmiM8IZPo43xfqOOGw&oh=00_AfWLmyThZBzEf265Zqlz_4JycHXDgk9MP2Wdm8PMMIZ-PQ&oe=68A94CDC",
+      duration: "2 min clips",
+      externalLink: "https://www.youtube.com/@peterobertucci"
     },
     {
       id: 3,
@@ -25,15 +33,17 @@ const Examples: React.FC = () => {
       type: "Short Form Videos",
       description: "Robert ‘T’ Toombs, the quick-witted co-founder of Mountain Readiness, serves up homegrown humor alongside a colorful lineup of guests, covering the full spectrum of preparedness and self-reliance with charm and grit!",
       image: "https://static.wixstatic.com/media/1b0303_53f6b47c5d47440e820aeb8e7372af75~mv2.webp/v1/fill/w_560,h_500,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/1b0303_53f6b47c5d47440e820aeb8e7372af75~mv2.webp",
-      duration: "3-20 min shorts"
+      duration: "3-20 min shorts",
+      externalLink: "https://www.youtube.com/@mountainreadiness"
     },
     {
       id: 4,
       title: "Rebuilding Hollers – Come Hell or Highwaters",
       type: "Foundational Content",
-      description: "Join Stephanie Johnson, founder of the Rebuilding Hollers Foundation, on Rebuilding Hollers – Come Hell or Highwaters, a podcast that celebrates the unyielding spirit of self-reliance and preparedness communities in Western North Carolina’s recovery after Hurricane Helene.  From the hollers of Yancey and Mitchell Counties, Stephanie shares powerful stories of resilience, community,m and hope as mountain families, volunteers, and local heros come together to rebuild homes, businesses and lives.",
+      description: "Join Stephanie Johnson, founder of the Rebuilding Hollers Foundation, on Rebuilding Hollers – Come Hell or Highwaters, a podcast that celebrates the unyielding spirit of self-reliance and preparedness communities in Western North Carolina's recovery after Hurricane Helene.  From the hollers of Yancey and Mitchell Counties, Stephanie shares powerful stories of resilience, community,m and hope as mountain families, volunteers, and local heros come together to rebuild homes, businesses and lives.",
       image: "https://live.staticflickr.com/65535/54618185464_581efa5a45_c.jpg",
-      duration: ""
+      duration: "",
+      externalLink: "https://www.youtube.com/@RebuildingHollers"
     }
   ];
 
@@ -84,8 +94,11 @@ const Examples: React.FC = () => {
                   <span className="text-sm text-gray-500 font-western">
                     {project.duration}
                   </span>
-                  <button className="flex items-center text-bold-red hover:text-red-700 font-bold font-western transition-colors duration-300">
-                    View Details
+                  <button 
+                    onClick={() => handleViewDetails(project.externalLink)}
+                    className="flex items-center text-bold-red hover:text-red-700 font-bold font-western transition-colors duration-300"
+                  >
+                    View Production
                     <ExternalLink size={16} className="ml-1" />
                   </button>
                 </div>

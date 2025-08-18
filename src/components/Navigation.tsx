@@ -16,13 +16,24 @@ const Navigation: React.FC = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-return (
+  return (
     <div className="relative">
       <nav className="bg-white border-b-4 border-american-blue shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Navigation Links - Centered */}
-          <div className="flex justify-center py-4">
-            <div className="flex space-x-8">
+          <div className="flex justify-between items-center py-4">
+            {/* Logo - Only shown on mobile */}
+            <div className="md:hidden">
+              <Link to="/" className="block h-12 w-12">
+                <img 
+                  src="https://i.imgur.com/V3H2Ohm.png" 
+                  alt="Broken Spokes Productions Logo"
+                  className="h-full w-auto"
+                />
+              </Link>
+            </div>
+
+            {/* Desktop Navigation - Hidden on mobile */}
+            <div className="hidden md:flex space-x-8">
               {navItems.map((item) => (
                 <Link
                   key={item.path}
@@ -37,22 +48,22 @@ return (
                 </Link>
               ))}
             </div>
-          </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden absolute top-4 right-4">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-american-blue hover:text-bold-red transition-colors duration-300"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile menu button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-american-blue hover:text-bold-red transition-colors duration-300"
+              >
+                {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
       
-      {/* Centered logo with red bar */}
-      <div className="w-full py-6">
+      {/* Centered logo with red bar - Hidden on mobile */}
+      <div className="hidden md:block w-full py-6">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <Link to="/" className="inline-block group">
             <img 
