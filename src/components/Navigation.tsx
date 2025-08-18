@@ -20,7 +20,7 @@ const Navigation: React.FC = () => {
     <div className="relative">
       <nav className="bg-white border-b-4 border-american-blue shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
+          <div className="flex justify-between md:justify-center items-center py-4 relative">
             {/* Logo - Only shown on mobile */}
             <div className="md:hidden">
               <Link to="/" className="block h-12 w-12">
@@ -49,8 +49,8 @@ const Navigation: React.FC = () => {
               ))}
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden">
+            {/* Mobile menu button - positioned absolutely on the right for mobile */}
+            <div className="md:hidden absolute right-0">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="text-american-blue hover:text-bold-red transition-colors duration-300"
