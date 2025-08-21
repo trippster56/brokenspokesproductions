@@ -14,22 +14,26 @@ const Footer: React.FC = () => {
       {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="text-center">
-          <p className="text-american-blue font-western text-lg mb-4">
-            © 2025 Broken Spokes Productions. All rights reserved.
+          <p className="text-american-blue font-western text-lg mb-2">
+            2025 Broken Spokes Productions. All rights reserved.
           </p>
-          <div className="flex justify-center space-x-6">
-            <Link 
-              to="/contact" 
-              className="text-gray-600 hover:text-bold-red transition-colors duration-300 font-western"
+          <p className="text-gray-600 text-sm mb-4">
+            Made by{' '}
+            <a 
+              href="https://tripplisenby.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-bold-red hover:underline"
             >
-              Privacy Policy
-            </Link>
-            <span className="text-gray-400">|</span>
+              Tripp Lisenby
+            </a>
+          </p>
+          <div className="mt-2">
             <Link 
-              to="/contact" 
-              className="text-gray-600 hover:text-bold-red transition-colors duration-300 font-western"
+              to="/subscribe" 
+              className="text-gray-600 hover:text-bold-red transition-colors duration-300 font-western text-lg"
             >
-              Terms of Service
+              Subscribe to Our Newsletter
             </Link>
           </div>
         </div>

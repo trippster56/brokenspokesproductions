@@ -1,9 +1,8 @@
 import React from 'react';
 import { Play, ExternalLink } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Examples: React.FC = () => {
-  const navigate = useNavigate();
   
   const handleViewDetails = (url: string) => {
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -116,6 +115,14 @@ const Examples: React.FC = () => {
             <p className="text-lg text-gray-700 font-western max-w-2xl mx-auto">
             Our portfolio represents years of dedication to capturing authentic narratives surrounding the self-reliance and preparedness communities through modern multimedia production techniques
             </p>
+            <div className="mt-8">
+              <Link 
+                to="/subscribe" 
+                className="inline-flex items-center px-8 py-3 border border-transparent text-lg font-western rounded-md text-white bg-bold-red hover:bg-red-700 transition-colors duration-300"
+              >
+                Subscribe to Know More
+              </Link>
+            </div>
           </div>
         </div>
       </div>

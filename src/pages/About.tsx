@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Mic, Video, Headphones, Radio, Users, CheckCircle, Mail } from 'lucide-react';
 
 const About: React.FC = () => {
@@ -145,7 +145,7 @@ const About: React.FC = () => {
                 Contact us today for a free 20-minute consultation to discuss your podcast or live stream goals!
               </p>
               <a 
-                href="mailto:brokenspokesproductions@gmail.com" 
+                href="mailto:info@brokenspokesproductions.com" 
                 className="inline-flex items-center px-6 py-3 border border-transparent text-lg font-western rounded-md text-white bg-bold-red hover:bg-american-blue transition-colors duration-200"
               >
                 <Mail className="mr-2" size={20} />
@@ -166,6 +166,12 @@ const About: React.FC = () => {
             Our mission is to transform your off-grid ideas into polished, professional audio and live video content that resonates with diverse audiences.
 
             </p>
+            <Link 
+              to="/subscribe" 
+              className="inline-flex items-center px-8 py-3 border border-transparent text-lg font-western rounded-md text-white bg-bold-red hover:bg-red-700 transition-colors duration-300"
+            >
+              Subscribe to Know More
+            </Link>
           </div>
         </div>
       </div>
