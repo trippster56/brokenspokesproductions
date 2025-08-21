@@ -1,53 +1,23 @@
-import React, { useState, useEffect } from 'react';
-
-declare global {
-  interface Window {
-    fnames: string[];
-    ftypes: string[];
-  }
-}
+import React, { useState } from 'react';
 
 const Subscribe: React.FC = () => {
-  const [formData, setFormData] = useState({
-    EMAIL: '',
-    FNAME: '',
-    LNAME: '',
-    MMERGE3: ''
-  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState({ text: '', isError: false });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    // The form will submit to Mailchimp directly
+    // We'll handle the response via the hidden response divs
+    const form = e.target as HTMLFormElement;
+    form.submit();
+    
+    // Reset form after submission
+    form.reset();
+    setMessage({ text: 'Thank you for subscribing!', isError: false });
+    setIsSubmitting(false);
   };
-
-  // Initialize Mailchimp
-  useEffect(() => {
-    // Add Mailchimp script
-    const script = document.createElement('script');
-    script.src = '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js';
-    script.async = true;
-    script.onload = () => {
-      // Initialize Mailchimp form validation
-      window.fnames = [];
-      window.ftypes = [];
-      window.fnames[0] = 'EMAIL';
-      window.ftypes[0] = 'email';
-      window.fnames[1] = 'FNAME';
-      window.ftypes[1] = 'text';
-      window.fnames[2] = 'LNAME';
-      window.ftypes[2] = 'text';
-      window.fnames[3] = 'MMERGE3';
-      window.ftypes[3] = 'dropdown';
-    };
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
 
   return (
     <div className="pt-0 pb-20">
@@ -67,13 +37,14 @@ const Subscribe: React.FC = () => {
         <div className="bg-white p-8 rounded-lg shadow-lg border-2 border-american-blue">
           <div id="mc_embed_signup">
             <form 
-              action="https://brokenspokesproductions.us10.list-manage.com/subscribe/post?u=20f44c25ad85930e5b6db5bc9&amp;id=7c8d58bf50&amp;f_id=000fc1e3f0" 
-              method="post" 
-              id="mc-embedded-subscribe-form" 
-              name="mc-embedded-subscribe-form" 
-              className="validate" 
+              action="https://brokenspokesproductions.us10.list-manage.com/subscribe/post?u=20f44c25ad85930e5b6db5bc9&amp;id=7c8d58bf50&amp;f_id=000fc1e3f0"
+              method="post"
+              id="mc-embedded-subscribe-form"
+              name="mc-embedded-subscribe-form"
+              className="validate"
               target="_blank"
               noValidate
+              onSubmit={handleSubmit}
             >
               <div id="mc_embed_signup_scroll">
                 <div className="indicates-required mb-4">
@@ -89,8 +60,6 @@ const Subscribe: React.FC = () => {
                     name="EMAIL" 
                     className="required email w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bold-red focus:border-transparent" 
                     id="mce-EMAIL"
-                    value={formData.EMAIL}
-                    onChange={handleChange}
                     required 
                   />
                 </div>
@@ -105,8 +74,6 @@ const Subscribe: React.FC = () => {
                       name="FNAME" 
                       className="required text w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bold-red focus:border-transparent" 
                       id="mce-FNAME"
-                      value={formData.FNAME}
-                      onChange={handleChange}
                       required 
                     />
                   </div>
@@ -120,8 +87,6 @@ const Subscribe: React.FC = () => {
                       name="LNAME" 
                       className="required text w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bold-red focus:border-transparent" 
                       id="mce-LNAME"
-                      value={formData.LNAME}
-                      onChange={handleChange}
                       required 
                     />
                   </div>
@@ -135,8 +100,6 @@ const Subscribe: React.FC = () => {
                     name="MMERGE3" 
                     className="required w-full px-4 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-bold-red focus:border-transparent" 
                     id="mce-MMERGE3"
-                    value={formData.MMERGE3}
-                    onChange={handleChange}
                     required
                   >
                     <option value="">Select a state...</option>
@@ -204,15 +167,22 @@ const Subscribe: React.FC = () => {
                   <input type="text" name="b_20f44c25ad85930e5b6db5bc9_7c8d58bf50" tabIndex={-1} defaultValue="" />
                 </div>
 
-                <div className="text-center">
+                <div className="mt-6">
                   <button 
                     type="submit" 
-                    name="subscribe" 
-                    id="mc-embedded-subscribe" 
-                    className="bg-bold-red hover:bg-red-700 text-white font-western text-lg px-8 py-3 rounded-lg shadow-md transition duration-300"
+                    className="w-full bg-bold-red text-white font-bold font-western text-lg py-3 px-6 rounded hover:bg-red-700 transition-colors duration-300"
+                    disabled={isSubmitting}
                   >
-                    SUBSCRIBE
+                    {isSubmitting ? 'Subscribing...' : 'SUBSCRIBE'}
                   </button>
+                  {message.text && (
+                    <div className={`mt-4 p-3 rounded ${message.isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
+                      {message.text}
+                    </div>
+                  )}
+                  {/* Mailchimp response messages */}
+                  <div id="mce-error-response" style={{ display: 'none' }}></div>
+                  <div id="mce-success-response" style={{ display: 'none' }}></div>
                 </div>
               </div>
             </form>
