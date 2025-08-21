@@ -85,7 +85,7 @@ const Author: React.FC = () => {
               </p>
               <div className="mt-8">
                 <a 
-                  href="https://www.amazon.com/dp/B0FMQF8X45?crid=104FDT0LX7ELO&dib=eyJ2IjoiMSJ9.B16VDYEa1bvwBeSppP7iBwRENEzEFmi4EkTFK27-fb1q4x-kntPXo5Ici7kF66JgswybJsEoKMODcIcAf0uDa-JI_x4zfaPs9lb5qKP2swxnNGXEMg1KUKpYo_dddzii6QbYX4I85Jniq0wvvkjw2TP88aE0D59hbVFoPVs1t_orY8Kkv-bLTQLorWygMbmZOJ3ODzw36_zYbYS3w_2vUUt0jRhaojaYnoXMa0qdiOI.tuDx6dWdyYvfkp-OZc1D02gpS0U_Ut02J4uxws7WeuM&dib_tag=se&keywords=RUSS+SAWYER&qid=1755463410&sprefix=russ+sawyer,aps,140&sr=8-2&linkCode=sl1&tag=586301-20&linkId=9bf86798523245e8c245071259d54a55&language=en_US&ref_=as_li_ss_tl" 
+                  href="https://amzn.to/3HMLo63" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="px-6 py-3 bg-bold-red text-white font-bold font-western text-lg hover:bg-red-700 transition-colors duration-300 inline-block"
