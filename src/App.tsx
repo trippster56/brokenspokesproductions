@@ -5,6 +5,7 @@ import Examples from './pages/Examples';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Author from './pages/Author';
+import Subscribe from './pages/Subscribe';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/author" element={<Author />} />
+          <Route path="/subscribe" element={<Subscribe />} />
         </Routes>
       </Layout>
     </Router>
