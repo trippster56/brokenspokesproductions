@@ -22,7 +22,7 @@ const Examples: React.FC = () => {
       title: "The Eden Army Podcast",
       type: "Podcast Snippets",
       description: "Best-selling author Pete Robertucci, mastermind behind the Eden Series, hosts this electrifying podcast for his devoted readers. Dive into survival and preparedness as we grill top industry experts, arming you with the know-how to thrive when chaos strikes!",
-      image: "https://scontent-atl3-2.xx.fbcdn.net/v/t39.30808-6/487488316_1696193921180237_7171310811890905654_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=f-BURd_I1FMQ7kNvwG9IlNU&_nc_oc=AdkofU21H4Q8xV-5-ZOoENdz0n-YbQ8L9hsKakNUaY0hEqQvdeil-w8jOcnwiC79PaU&_nc_zt=23&_nc_ht=scontent-atl3-2.xx&_nc_gid=bD_0hmiM8IZPo43xfqOOGw&oh=00_AfWLmyThZBzEf265Zqlz_4JycHXDgk9MP2Wdm8PMMIZ-PQ&oe=68A94CDC",
+      image: "/theedenarmy.jpeg",
       duration: "2 min clips",
       externalLink: "https://www.youtube.com/@peterobertucci"
     },

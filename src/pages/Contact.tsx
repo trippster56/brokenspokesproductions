@@ -1,28 +1,64 @@
+// Contact.tsx
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { Mail, Phone, Clock, Send } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
+    company: '' // honeypot (bots will fill this)
   });
-
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    setError(null);
+
+    // simple client-side validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setError('Please complete the required fields.');
+      return;
+    }
+
+    // honeypot check
+    if (formData.company) {
+      setIsSubmitted(true); // silently "succeed"
+      setTimeout(() => setIsSubmitted(false), 2500);
+      return;
+    }
+
+    try {
+      const res = await fetch('/api/contact-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          subject: formData.subject || 'General Inquiry',
+          message: formData.message.trim()
+        })
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.error || 'Unable to send your message.');
+      }
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '', company: '' });
+      setTimeout(() => setIsSubmitted(false), 3000);
+    } catch (err: any) {
+      setError(err.message || 'Something went wrong. Please try again.');
+    }
   };
 
   return (
@@ -46,8 +82,19 @@ const Contact: React.FC = () => {
               SEND A MESSAGE
             </h2>
             <div className="h-1 w-16 bg-bold-red mb-8"></div>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
+
+            <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+              {/* honeypot (hide visually) */}
+              <input
+                type="text"
+                name="company"
+                value={formData.company}
+                onChange={handleChange}
+                className="hidden"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-bold text-american-blue font-western mb-2">
@@ -64,7 +111,6 @@ const Contact: React.FC = () => {
                     placeholder="Your full name"
                   />
                 </div>
-                
                 <div>
                   <label htmlFor="email" className="block text-sm font-bold text-american-blue font-western mb-2">
                     EMAIL *
@@ -81,7 +127,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="subject" className="block text-sm font-bold text-american-blue font-western mb-2">
                   INQUIRY TYPE
@@ -94,14 +140,14 @@ const Contact: React.FC = () => {
                   className="w-full px-4 py-3 border-2 border-gray-300 focus:border-american-blue outline-none transition-colors duration-300 font-western"
                 >
                   <option value="">Select an option</option>
-                  <option value="general">General Inquiry</option>
-                  <option value="collaboration">Collaboration</option>
-                  <option value="media">Media Request</option>
-                  <option value="speaking">Speaking Engagement</option>
-                  <option value="other">Other</option>
+                  <option value="General Inquiry">General Inquiry</option>
+                  <option value="Collaboration">Collaboration</option>
+                  <option value="Media Request">Media Request</option>
+                  <option value="Speaking Engagement">Speaking Engagement</option>
+                  <option value="Other">Other</option>
                 </select>
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-bold text-american-blue font-western mb-2">
                   MESSAGE *
@@ -117,20 +163,18 @@ const Contact: React.FC = () => {
                   placeholder="Tell us about your inquiry..."
                 ></textarea>
               </div>
-              
+
+              {error && (
+                <p className="text-sm text-red-600" role="alert">{error}</p>
+              )}
+
               <button
                 type="submit"
                 disabled={isSubmitted}
                 className="w-full bg-bold-red text-white font-bold font-western text-lg py-4 px-8 hover:bg-red-700 transition-colors duration-300 border-2 border-bold-red hover:border-red-700 flex items-center justify-center space-x-2 disabled:opacity-50"
+                aria-live="polite"
               >
-                {isSubmitted ? (
-                  <span>MESSAGE SENT!</span>
-                ) : (
-                  <>
-                    <span>SEND MESSAGE</span>
-                    <Send size={20} />
-                  </>
-                )}
+                {isSubmitted ? <span>MESSAGE SENT!</span> : (<><span>SEND MESSAGE</span><Send size={20} /></>)}
               </button>
             </form>
           </div>
@@ -138,11 +182,8 @@ const Contact: React.FC = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="bg-gray-50 p-8 border-l-4 border-bold-red">
-              <h2 className="text-3xl font-bold text-american-blue font-western mb-6">
-                CONTACT INFO
-              </h2>
+              <h2 className="text-3xl font-bold text-american-blue font-western mb-6">CONTACT INFO</h2>
               <div className="h-1 w-16 bg-bold-red mb-8"></div>
-              
               <div className="space-y-10">
                 <div className="flex items-start space-x-4">
                   <Mail size={24} className="text-bold-red mt-1" />
@@ -151,7 +192,6 @@ const Contact: React.FC = () => {
                     <p className="text-gray-700 font-western">info@brokenspokesproductions.com</p>
                   </div>
                 </div>
-                
                 <div className="flex items-start space-x-4">
                   <Phone size={24} className="text-bold-red mt-1" />
                   <div>
@@ -159,7 +199,6 @@ const Contact: React.FC = () => {
                     <p className="text-gray-700 font-western">843-250-7790</p>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-4">
                   <Clock size={24} className="text-bold-red mt-1" />
                   <div>
@@ -170,8 +209,6 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Response Time */}
             <div className="bg-american-blue p-8 text-white text-center mt-12">
               <h3 className="text-2xl font-bold font-western mb-4">QUICK RESPONSE</h3>
               <p className="font-western leading-relaxed">
