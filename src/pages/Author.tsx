@@ -95,7 +95,45 @@ const Author: React.FC = () => {
               </div>
             </div>
           </div>
+
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center mt-16">
+            <div>
+              <img
+                src="/images/echos-cover.jpg"
+                alt="The Hanging Creek Chronicles: Echoes of Rebellion"
+                className="w-full h-auto max-w-md mx-auto rounded-lg shadow-lg border-4 border-american-blue"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-american-blue font-western mb-4">
+                THE HANGING CREEK CHRONICLES: ECHOES OF REBELLION
+              </h2>
+              <div className="h-1 w-16 bg-bold-red mb-6"></div>
+              <p className="text-lg text-gray-700 font-western mb-6 leading-relaxed">
+              In a fractured America gasping under the iron decree of President Pensik, the sanctuary of Pete's Place is shattered by the single crack of a sniper's rifle. As retired Air Force Veteran Cole Ramsey fights for his life against a festering wound and a relentless fever, his wife Nora must rise to lead their resilient tribe through their darkest hour.
+              </p>
+              <p className="text-lg text-gray-700 font-western mb-6 leading-relaxed">
+              With the corrupt Sheriff Dobbins now serving a cold-blooded ex-black ops operative known as The Director, the Ramseys find themselves in the crosshairs of a corporate tyranny backed by the mysterious Arcadia Group. From high-stakes sabotage at fuel depots to unmasking traitors within their own network, the family must move beyond the farm's borders to strike at the heart of the encroaching shadows.
+              </p>
+              <p className="text-lg text-gray-700 font-western mb-6 leading-relaxed">
+              Fueled by the rising whispers of a Free States coalition, they stand defiant, their rifles ready, as a wider rebellion sparks across the South. With the frequency of resistance finally forged and the storm of war breaking over the Timmonsville textile factory, The Hanging Creek Chronicles: Echoes of Rebellion is a pulse-pounding tale of alliance, resolve, and the unbreakable will to strike back in a world consumed by darkness.
+              </p>
+              <div className="mt-8">
+                <a
+                  href="https://amzn.to/4bMo8Ac"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-6 py-3 bg-bold-red text-white font-bold font-western text-lg hover:bg-red-700 transition-colors duration-300 inline-block"
+                >
+                  GET YOUR COPY TODAY
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+
 
         {/* Contact CTA */}
         <div className="bg-american-blue py-16 text-white text-center">
